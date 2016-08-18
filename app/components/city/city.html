@@ -1,0 +1,96 @@
+<div ui-view='header'></div>
+
+<md-content ng-controller="cityCtrl as city">
+    <h2>{{city.name}} - {{city.state}}</h2>
+
+    <md-card>
+      <md-card-title-text>
+        <span class="md-headline">Statistics</span>
+      </md-card-header-text>
+
+      <md-card-content>
+        <h3>Consumer price</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Average Price</th>
+              <th>Standard Deviation</th>
+              <th>Minimum Price</th>
+              <th>Maximum Price</th>
+              <th>Average Margin</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="stat in city.statistics">
+              <td>{{stat.type}}</td>
+              <td>{{stat.consumerPrice.averagePrice}}</td>
+              <td>{{stat.consumerPrice.standardDeviation}}</td>
+              <td>{{stat.consumerPrice.minPrice}}</td>
+              <td>{{stat.consumerPrice.maxPrice}}</td>
+              <td>{{stat.consumerPrice.averageMargin}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Distribution price</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Average Price</th>
+              <th>Standard Deviation</th>
+              <th>Minimum Price</th>
+              <th>Maximum Price</th>
+              <th>Average Margin</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="stat in city.statistics">
+              <td>{{stat.type}}</td>
+              <td>{{stat.distributionPrice.averagePrice}}</td>
+              <td>{{stat.distributionPrice.standardDeviation}}</td>
+              <td>{{stat.distributionPrice.minPrice}}</td>
+              <td>{{stat.distributionPrice.maxPrice}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </md-card-content>
+    </md-card>
+
+    <md-card>
+      <md-card-title-text>
+        <span class="md-headline">Stations</span>
+      </md-card-header-text>
+
+      <md-card-content>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Sell Price</th>
+              <th>Buy Price</th>
+              <th>Sale Mode</th>
+              <th>Provider</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="station in city.stations">
+              <td>{{station.name}}</td>
+              <td>{{station.Prices[0].type}}</td>
+              <td>{{station.Prices[0].sellPrice}}</td>
+              <td>{{station.Prices[0].buyPrice}}</td>
+              <td>{{station.Prices[0].saleMode}}</td>
+              <td>{{station.Prices[0].provider}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </md-card-content>
+    </md-card>
+</md-content>

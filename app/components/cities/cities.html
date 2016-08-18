@@ -1,0 +1,22 @@
+<div ui-view='header'></div>
+
+<md-content>
+  <md-card ng-controller="citiesCtrl as cities" style="width: 600px">
+    <md-card-title-text>
+      <span class="md-headline">Select a city to get information</span>
+    </md-card-header-text>
+
+    <md-card-content>
+      <md-input-container>
+        <label>Filter</label>
+        <input ng-model="query">
+      </md-input-container>
+
+      <md-list>
+        <md-list-item ng-repeat="city in cities | filter:query">
+          <a href="/#/cities/{{city.safe_id}}">{{city.name}} - {{city.state}}</a>
+        </md-list-item>
+      </md-list>
+    </md-card-content>
+  </md-card>
+</md-content>
